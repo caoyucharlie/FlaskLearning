@@ -1,0 +1,15 @@
+
+{% extends 'base_min.html' %}
+{% block title %}
+    登录页面(继承)
+{% endblock %}
+
+{% block content %}
+
+欢迎：{{ username }} 登录成功！
+<form action="" method="POST">
+    姓名:<input type="text" placeholder="请输入用户名" name="username">
+    <input type="submit" value="提交">
+</form>
+
+{% endblock %}
