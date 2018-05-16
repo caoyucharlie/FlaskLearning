@@ -1,0 +1,41 @@
+
+
+{% extends 'base_main.html' %}
+
+{% block title %}分数页面{% endblock %}
+
+{% block header %}
+    <ul>
+{% for score in scores %}
+    {{ loop.index }}
+    {% if loop.first %}
+    <li style="color:red;">{{ loop.index }}:{{ score }}</li>
+        {% elif loop.last %}
+        <li style="color:green;">{{ score }}</li>
+    {% else %}
+    <li>{{ score }}</li>
+    {% endif %}
+    {% endfor %}
+    </ul>
+    <hr>
+    <li>{{ content }}</li>
+    <li>{{ content|safe }}</li>
+    <li>{{ content|striptags }}</li>
+    <li>{{ content1 }}</li>
+    <li>{{ content1|length }}</li>
+    <li>{{ content1|trim|length }}</li>
+
+    <hr>
+    <ul>
+    {% for i in config %}
+    <li>{{ i }}</li>
+    {% endfor %}
+    </ul>
+<hr>
+    {% from 'functions.html' import show_goods%}
+{{ show_goods('可爱多', '1')}}
+    <br>
+    {{show_goods('梦龙','2')}}
+    <hr>
+
+{% endblock %}

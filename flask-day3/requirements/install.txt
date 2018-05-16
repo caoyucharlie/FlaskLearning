@@ -1,0 +1,11 @@
+
+flask
+flask-session
+flask-script
+flask-blueprint
+flask-sqlalchemy
+
+redis
+pymysql
+
+pip install -r install.txt
