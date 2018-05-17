@@ -1,0 +1,56 @@
+
+1. 添加多条学生信息
+
+s_list = [学生对象1， 学生对象2，..]
+db.session.add_all(s_list)
+
+2. 运算符
+
+filter(模型名.字段.运算符('xxx'))
+filter(模型名.字段 运算符 值 )
+
+运算符
+
+__lt__ 小于
+__le__ 小于等于
+
+__gt__ 大于
+__ge__ 大于等于
+
+in_ 在范围内
+
+order_by 排序
+
+limit 截取几个信息
+
+offset 跳过几个信息
+
+get 获取主键对应的信息
+
+and_ 并且条件
+
+or_ 或者条件
+
+not_ 非
+
+3. 分页
+
+paginate对象
+
+pages 总页数
+total 总条数
+has_prev 是否有上页
+has_next 是否有下页
+prev_num
+next_num
+
+iter_pages() 当前一共多少页[1,2,3]
+
+4. one_to_many
+
+
+在one的model中定义relationship字段 
+students = db.relationship('Student', backref='stu', lazy=True)
+
+1）通过one找many，one的对象.students，结果为many的结果
+2）通过many找one，many的对象.stu，结果为one的对象

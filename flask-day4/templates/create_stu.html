@@ -1,0 +1,17 @@
+
+{% extends 'base_main.html' %}
+
+{% block title %}
+    创建学生信息
+{% endblock %}
+
+{% block content %}
+<form action="" method="POST">
+    学生姓名1：<input type="text" name="username1" placeholder="请输入学生姓名">
+    学生年龄1：<input type="text" name="age1" placeholder="请输入年龄">
+    <hr>
+     学生姓名2：<input type="text" name="username2" placeholder="请输入学生姓名">
+    学生年龄2：<input type="text" name="age2" placeholder="请输入年龄">
+    <input type="submit" value="提交">
+</form>
+{% endblock %}
