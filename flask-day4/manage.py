@@ -1,6 +1,6 @@
 
 from flask_script import Manager
-from stu import create_app
+from utils.App import create_app
 
 app = create_app()
 manger = Manager(app=app)

@@ -1,7 +1,6 @@
 
-from flask_sqlalchemy import SQLAlchemy
 
-db = SQLAlchemy()
+from utils.functions import db
 
 
 class Student(db.Model):
@@ -15,4 +14,27 @@ class Student(db.Model):
     def __init__(self, name, age):
         self.s_name = name
         self.s_age = age
+
+
+sc = db.Table('sc',       # 中间表名
+              db.Column('s_id', db.Integer, db.ForeignKey('stu.s_id'), primary_key=True),
+              db.Column('c_id', db.Integer, db.ForeignKey('course.c_id'), primary_key=True)
+              )
+
+
+class Course(db.Model):
+
+    c_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    c_name = db.Column(db.String(10), unique=True)
+    students = db.relationship('Student',
+                               secondary=sc,     # 指定代理
+                               backref='cou'     # 通过 cou反向查找
+                               )
+
+    __tablename__ = 'course'
+
+    def __init__(self, name):
+        self.c_name = name
+
+
 

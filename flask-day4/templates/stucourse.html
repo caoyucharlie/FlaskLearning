@@ -1,0 +1,17 @@
+
+{% extends 'base_main.html' %}
+
+{% block title %}选课结果信息{% endblock %}
+{% block content %}
+    <h2>{{ stu.s_name }}的选课结果</h2>
+<ul>
+{% for cou in cous %}
+    <li>
+    id: {{ cou.c_id }}
+    课程名称:{{ cou.c_name }}
+    <a href="/stu/deletecoursebyid/{{ stu.s_id }}/{{ cou.c_id }}/">删除</a>
+    </li>
+{% endfor %}
+</ul>
+
+{% endblock %}
